@@ -33,6 +33,11 @@ Crear una aplicación de chat funcional usando **Node.js**, **Socket.io**, **Boo
 
 ## 🖼️ Capturas de pantalla
 
+## Captura de pantalla del chat
+
+![Chat funcionando](https://i.imgur.com/abc123.jpg)
+
+
 ### Página de Registro  
 ![Registro](capturas/registro.png)
 
