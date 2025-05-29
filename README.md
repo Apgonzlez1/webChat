@@ -89,14 +89,14 @@ node src/index.js
 
 http://localhost:3000/register
 
-br
+## 
 
 🙋‍♀️ Autor
 Adriana González
 Correo: apgonzalez1@espe.edu.ec
 GitHub: @Apgonzlez1
 
-br
+## 
 
 📚 Asignatura
 Aplicaciones Distribuidas
