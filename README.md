@@ -74,22 +74,29 @@ webChat/
 1. Clona el repositorio:  
    ```bash
    git clone https://github.com/Apgonzlez1/webChat.git
-Instala las dependencias:
+## Instala las dependencias:
 
 
 npm install
-Ejecuta el servidor:
+
+## Ejecuta el servidor:
 
 
 node src/index.js
-Abre en el navegador:
+
+## Abre en el navegador:
 
 
 http://localhost:3000/register
+
+## 
+
 🙋‍♀️ Autor
 Adriana González
 Correo: apgonzalez1@espe.edu.ec
 GitHub: @Apgonzlez1
+
+## 
 
 📚 Asignatura
 Aplicaciones Distribuidas
