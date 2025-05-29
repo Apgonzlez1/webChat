@@ -33,9 +33,7 @@ Crear una aplicación de chat funcional usando **Node.js**, **Socket.io**, **Boo
 
 ## 🖼️ Capturas de pantalla
 
-## Captura de pantalla del chat
 
-![Chat funcionando](https://i.imgur.com/abc123.jpg)
 
 
 ### Página de Registro  
@@ -43,7 +41,7 @@ Crear una aplicación de chat funcional usando **Node.js**, **Socket.io**, **Boo
 
 
 ### Chat funcionando (vista general)  
-![Chat general](capturas/chat_general.png)
+[![Chat general](capturas/chat_general.png)](https://imgur.com/a/kZJypuZ)
 
 ### Envío de mensaje propio  
 ![Mensaje propio](capturas/mensaje_propio.png)
