@@ -41,7 +41,7 @@ Crear una aplicación de chat funcional usando **Node.js**, **Socket.io**, **Boo
 
 
 ### Chat funcionando (vista general)  
-
+![Chat general](capturas/chat_general_emoji.png)
 
 
 
