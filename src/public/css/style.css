@@ -401,3 +401,108 @@ input:focus {
 #emojiPicker span:hover {
   background-color: #eee;
 }
+.whatsapp-btn {
+  background-color: #25D366;  /* Verde WhatsApp */
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background-color: #128C4A;  /* Verde más oscuro al pasar el mouse */
+}
+/* Panel lateral de usuarios */
+.user-panel {
+  width: 200px;
+  background-color: #fff;
+  color: #333;
+  border-right: 1px solid #ccc;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  overflow-y: auto;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-header {
+  background-color: #25D366;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+#user-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #f8f9fa;
+  border-right: 2px solid #ddd;
+  padding: 10px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+#user-list h6 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+#user-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#user-list li {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#user-list li:hover {
+  background-color: #f1f1f1;
+}
+
+
+#emojiPicker {
+  display: none;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+#emojiPicker span {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.whatsapp-btn {
+  background-color: #25D366;
+  border: none;
+  color: white;
+}
+
+.message.user {
+  text-align: right;
+}
+
+.message.other {
+  text-align: left;
+}
+.sidebar-users {
+  width: 200px;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+}

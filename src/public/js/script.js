@@ -1,60 +1,56 @@
 const socket = io();
 
-const send = document.querySelector("#send-message");
-const allMessages = document.querySelector("#all-messages");
+const sendBtn = document.querySelector("#send-message");
 const messageInput = document.querySelector("#message");
+const allMessages = document.querySelector("#all-messages");
+const userList = document.querySelector("#users");
 
 const getUsernameFromCookie = () => {
   const cookie = document.cookie
     .split("; ")
     .find((row) => row.startsWith("username="));
-  return cookie ? cookie.split("=")[1] : null;
+  return cookie ? decodeURIComponent(cookie.split("=")[1]) : null;
 };
 
 const currentUser = getUsernameFromCookie();
-
 const connectedUsers = new Set();
 
-// Al iniciar, asumimos que el usuario actual está conectado (mejorar esto con el servidor)
+// Escuchar lista de usuarios desde el servidor
+socket.on("update-user-list", (users) => {
+  connectedUsers.clear();
+  users.forEach(user => connectedUsers.add(user));
+  updateUserListUI();
+  updateUserStatusIndicators();
+});
+
+// Al iniciar, agregamos al usuario actual
 if (currentUser) {
   connectedUsers.add(currentUser);
   updateUserStatusIndicators();
+  updateUserListUI();
 }
 
-// ESCUCHAR eventos desde servidor
-socket.on("user-connected", (username) => {
-  connectedUsers.add(username);
-  updateUserStatusIndicators();
-});
-
-socket.on("user-disconnected", (username) => {
-  connectedUsers.delete(username);
-  updateUserStatusIndicators();
-});
-
+// Enviar mensaje
 function sendMessage() {
-  if (messageInput.value.trim() !== "") {
-    socket.emit("message", messageInput.value);
+  const message = messageInput.value.trim();
+  if (message !== "") {
+    socket.emit("message", message);
     messageInput.value = "";
   }
 }
 
-send.addEventListener("click", () => {
-  sendMessage();
-});
-
-messageInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter" && !event.shiftKey) {
-    event.preventDefault();
+sendBtn.addEventListener("click", sendMessage);
+messageInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
     sendMessage();
   }
 });
 
+// Mostrar mensajes
 socket.on("message", ({ user, message }) => {
   const isCurrentUser = user === currentUser;
   const messageClass = isCurrentUser ? "user" : "other";
-
-  // Estado online si está en el set connectedUsers
   const isOnline = connectedUsers.has(user);
   const statusDot = `<span class="status-dot ${isOnline ? "online" : "offline"}"></span>`;
 
@@ -77,33 +73,56 @@ socket.on("message", ({ user, message }) => {
   allMessages.scrollTop = allMessages.scrollHeight;
 });
 
+// Eventos individuales
+socket.on("user-connected", (username) => {
+  connectedUsers.add(username);
+  updateUserListUI();
+  updateUserStatusIndicators();
+});
+
+socket.on("user-disconnected", (username) => {
+  connectedUsers.delete(username);
+  updateUserListUI();
+  updateUserStatusIndicators();
+});
+
+// Actualiza los puntitos en mensajes
 function updateUserStatusIndicators() {
   document.querySelectorAll(".message .username").forEach((el) => {
-    // Eliminar círculos viejos
     el.querySelectorAll(".status-dot").forEach(dot => dot.remove());
 
-    // Extraer sólo el nombre (sin estado)
     const usernameOnly = el.textContent.trim().split(" ")[0];
     const isOnline = connectedUsers.has(usernameOnly);
-    
-    const statusDot = document.createElement("span");
-    statusDot.classList.add("status-dot");
-    statusDot.classList.add(isOnline ? "online" : "offline");
-    el.appendChild(statusDot);
+    const dot = document.createElement("span");
+    dot.classList.add("status-dot", isOnline ? "online" : "offline");
+    el.appendChild(dot);
   });
 }
+
+// Lista lateral de usuarios
+function updateUserListUI() {
+  userList.innerHTML = "";
+  const sorted = Array.from(connectedUsers).sort();
+  sorted.forEach(user => {
+    const li = document.createElement("li");
+    li.textContent = user;
+    li.classList.add("online");
+    userList.appendChild(li);
+  });
+}
+
+// Emoji Picker
 function toggleEmojiPicker() {
   const picker = document.getElementById("emojiPicker");
-  picker.style.display = (picker.style.display === "flex") ? "none" : "flex";
+  picker.style.display = picker.style.display === "flex" ? "none" : "flex";
 }
 
 function addEmoji(emoji) {
-  const input = document.getElementById("message");
-  input.value += emoji;
-  input.focus();
+  messageInput.value += emoji;
+  messageInput.focus();
 }
 
-document.addEventListener("click", function (event) {
+document.addEventListener("click", (event) => {
   const picker = document.getElementById("emojiPicker");
   const emojiBtn = document.querySelector(".emoji-btn");
 
