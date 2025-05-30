@@ -5,27 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Registrarse | Web Chat</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/register.css" />
 </head>
-<body class="bg-dark text-white d-flex align-items-center justify-content-center vh-100">
+<body class="register-body">
 
-  <div class="card bg-secondary text-white p-4" style="max-width: 400px; width: 100%;">
-    <div class="card-header bg-warning text-dark text-center">
-      <h4>Bienvenido al Chat</h4>
-    </div>
-    <div class="card-body">
-      <form action="#" method="post">
-        <div class="mb-3">
-          <label for="username" class="form-label">Ingresa tu nombre de usuario</label>
-          <input type="text" class="form-control" id="username" placeholder="Tu nombre">
-        </div>
-        <div class="d-grid">
-          <button type="button" class="btn btn-warning" id="login">Ingresar al chat</button>
-        </div>
-      </form>
-    </div>
-  </div>
+  <main>
+    <form>
+      <h2 class="text-center mb-4">👋 ¡Bienvenido!</h2>
+      <h2 class="text-center mb-4">ChatAG</h2>
+      <div class="input-group">
+        <label for="username">¿Cómo te llamas?</label>
+        <input type="text" id="username" placeholder="Escribe tu nombre...">
+      </div>
+      <div class="button-container">
+        <button type="button" class="btn primary" id="login">Entrar al chat</button>
+      </div>
+    </form>
+  </main>
 
-  <script src="js/register.js"></script>
+  <script src="/js/register.js"></script>
 </body>
 </html>

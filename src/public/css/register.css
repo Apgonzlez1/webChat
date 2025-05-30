@@ -1,60 +1,74 @@
-main {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
+/* CUERPO */
+.register-body {
+  background-color: #e5ddd5; /* Fondo claro tipo WhatsApp */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
+/* CONTENEDOR PRINCIPAL */
 main form {
-    width: 50%;
-    padding: 20px;
-    background-color: #1e1e1e;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(255, 214, 0, 0.3);
-    display: flex;
-    flex-direction: column;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
 }
 
-main form .input-group {
-    margin-bottom: 15px;
+/* INPUT GROUP */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
-main form .input-group label {
-    text-align: center;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #ffd600;
+.input-group label {
+  font-weight: 600;
+  color: #075e54; /* Verde oscuro WhatsApp */
+  margin-bottom: 6px;
+  font-size: 1rem;
 }
 
-main form input {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: #2c2c2c;
-    color: #fff;
-    font-size: 1rem;
+.input-group input {
+  padding: 12px 15px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
 
-main form input::placeholder {
-    color: #aaa;
+.input-group input:focus {
+  border-color: #25d366;
+  box-shadow: 0 0 8px rgba(37, 211, 102, 0.4);
 }
 
-main form .button-container {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
+/* BOTÓN */
+.button-container {
+  display: flex;
+  justify-content: center;
 }
 
-.button-container .btn.primary {
-    background-color: #43a8f0;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 12px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+.btn.primary {
+  background-color: #25d366;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
 }
 
-.button-container .btn.primary:hover {
-    background-color: #116bf0;
-    cursor: pointer;
+.btn.primary:hover {
+  background-color: #128c4a;
+  box-shadow: 0 6px 14px rgba(18, 140, 74, 0.5);
 }

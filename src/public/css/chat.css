@@ -1,89 +1,36 @@
+/* FONDO DEL CHAT */
 #all-messages {
     flex: 1;
     overflow-y: auto;
     padding: 20px;
-    background-color: #1e1e1e;
+    background-color: #e5ddd5; /* Fondo tipo WhatsApp */
     border-radius: 8px;
     margin-bottom: 10px;
 }
 
+/* MENSAJES */
 .message {
     display: flex;
-    margin-bottom: 15px;
-}
-
-.message .image-container {
-    width: 40px;
     align-items: flex-start;
+    margin-bottom: 15px;
+    animation: fadeIn 0.3s ease-in;
 }
 
-.message .image-container img {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+.message.user {
+    justify-content: flex-end;
 }
 
-.message .message-body {
-    margin-left: 10px;
-    padding: 10px;
-    border-radius: 8px;
-    max-width: 75%;
+.message.other {
+    justify-content: flex-start;
 }
 
-.message.user .message-body {
-    background-color: #ffd600;
-    color: #000;
-    align-self: flex-end;
-}
-
-.message.other .message-body {
-    background-color: #2c2c2c;
-    color: #e0e0e0;
-}
-
-.message .user-info .time {
-    font-size: 12px;
-    color: #b0b0b0;
-}
-
-.send-message {
-    display: flex;
-    background: #1e1e1e;
-    padding: 10px;
-    border-top: 1px solid #333;
-}
-
-.send-message input {
-    flex: 1;
-    padding: 10px;
-    background: #2c2c2c;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-}
-
-.send-message button {
-    margin-left: 10px;
-    padding: 10px 20px;
-    background-color: #ffd600;
-    color: #000;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.send-message button:hover {
-    background-color: #ffeb3b;
-}
 .message .image-container {
     width: 40px;
     min-width: 40px;
     height: 40px;
     display: flex;
-    align-items: flex-start;
     justify-content: center;
+    align-items: center;
 }
 
 .message .image-container img {
@@ -91,4 +38,145 @@
     width: 40px;
     height: 40px;
     object-fit: cover;
+}
+
+/* CUERPO DEL MENSAJE */
+.message .message-body {
+    margin-left: 10px;
+    padding: 10px 15px;
+    border-radius: 16px;
+    max-width: 75%;
+    word-wrap: break-word;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ESTILO MENSAJE DEL USUARIO (verde claro WhatsApp) */
+.message.user .message-body {
+    background-color: #dcf8c6;
+    color: #000;
+    border-radius: 16px 16px 0 16px;
+    align-self: flex-end;
+}
+
+/* ESTILO MENSAJE DE OTROS (blanco) */
+.message.other .message-body {
+    background-color: #ffffff;
+    color: #000;
+    border-radius: 16px 16px 16px 0;
+    align-self: flex-start;
+}
+
+/* INFORMACIÓN DEL USUARIO: NOMBRE Y HORA */
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+    padding-right: 5px;
+}
+
+.username {
+    color: #075e54;
+    font-weight: bold;
+    font-size: 0.9rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.time {
+    color: #999;
+    font-style: italic;
+    font-size: 0.75rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* INPUT Y ENVÍO DE MENSAJE */
+.send-message {
+    display: flex;
+    background: #f0f0f0;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.send-message input {
+    flex: 1;
+    padding: 10px;
+    background: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+}
+
+.send-message button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #25d366; /* Verde WhatsApp */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.send-message button:hover {
+    background-color: #1ebe5d;
+}
+
+/* SCROLLBAR CUSTOM */
+#all-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+#all-messages::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+/* ANIMACIÓN FADE IN */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.status-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-left: 8px;
+  vertical-align: middle;
+  border: 1.5px solid #ccc;
+}
+
+.status-dot.online {
+  background-color: #25d366; /* verde WhatsApp */
+  border-color: #128c4a;
+}
+
+.status-dot.offline {
+  background-color: #d93025; /* rojo vibrante */
+  border-color: #a8231f;
+}
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.status-dot.online {
+  background-color: #25D366; /* verde WhatsApp */
+}
+
+.status-dot.offline {
+  background-color: #d9534f; /* rojo Bootstrap */
 }

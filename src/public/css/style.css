@@ -1,75 +1,92 @@
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* CUERPO */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #121212;
-    color: #E0E0E0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e5ddd5;  /* Fondo tipo WhatsApp */
+    color: #000;
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
+/* ENCABEZADO */
 header {
-    background: #FFD600;
-    color: #000;
-    padding: 10px;
+    background: #075e54; /* Verde oscuro WhatsApp */
+    color: #fff;
+    padding: 12px;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
+/* BOTONES */
 .btn {
-    padding: 0.375rem 0.75rem;
+    padding: 0.4rem 0.9rem;
     font-size: 1rem;
     text-align: center;
     text-decoration: none;
     border: 1px solid transparent;
-    border-radius: 1rem;
+    border-radius: 20px;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
         border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     cursor: pointer;
+    user-select: none;
 }
 
 .btn.primary {
     color: #fff;
-    background-color: #43a8f0;
-    border-color: #43a8f0;
+    background-color: #25d366; /* Verde brillante WhatsApp */
+    border-color: #25d366;
+    box-shadow: 0 4px 8px rgba(37, 211, 102, 0.4);
 }
 
 .btn.primary:hover {
-    background-color: #116bf0;
-    border-color: #0a58ca;
+    background-color: #128c4a;
+    border-color: #0f7b42;
     color: #fff;
 }
 
 .btn.primary:active {
-    background-color: #0a58ca;
-    border-color: #0a53be;
+    background-color: #0f7b42;
+    border-color: #0c6938;
     color: #fff;
 }
 
+/* GRUPOS DE INPUTS */
 .input-group {
     display: flex;
     flex-direction: column;
 }
 
+/* INPUTS */
 input {
     border: 1px solid #ccc;
     outline: none;
-    padding: 10px;
-    border-radius: 3px;
-    background-color: #2c2c2c;
-    color: #fff;
+    padding: 12px 15px;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #000;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
+input:focus {
+    border-color: #25d366;
+    box-shadow: 0 0 8px rgba(37, 211, 102, 0.5);
+}
+
+/* TARJETA DEL CHAT */
 .card {
-    box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
-    border-radius: 12px;
-    background: #1e1e1e;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 16px;
+    background: #fff;
     padding: 20px;
     margin: 20px auto;
     width: 100%;
@@ -79,11 +96,14 @@ input {
     flex-direction: column;
 }
 
+/* CONTENEDOR BOTONES */
 .button-container {
     display: flex;
     justify-content: center;
     margin-top: 10px;
 }
+
+/* CONTENEDOR DE IMAGEN DEL MENSAJE */
 .message .image-container {
     width: 40px;
     min-width: 40px;
@@ -99,99 +119,285 @@ input {
     height: 40px;
     object-fit: cover;
 }
+
+/* MENSAJES - USUARIO */
 .message.user .message-body {
-    background-color: #FFD600;  /* Amarillo brillante para tus mensajes */
+    background-color: #dcf8c6; /* Verde claro tipo WhatsApp */
     color: #000;
     align-self: flex-end;
-    border-radius: 12px 12px 0 12px; /* Bordes redondeados para que se vea estilo chat */
+    border-radius: 16px 16px 0 16px;
 }
 
+/* MENSAJES - OTROS */
 .message.other .message-body {
-    background-color: #2C2C2C; /* Gris oscuro para mensajes de otros */
-    color: #E0E0E0;
+    background-color: #ffffff; /* Blanco */
+    color: #000;
     align-self: flex-start;
-    border-radius: 12px 12px 12px 0;
+    border-radius: 16px 16px 16px 0;
 }
-/* Mensaje base */
+
+/* MENSAJE BASE */
 .message {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 15px;
-  animation: fadeIn 0.3s ease-in;
-}
-
-.message .image-container {
-  width: 40px;
-  min-width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.message .image-container img {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    animation: fadeIn 0.3s ease-in;
 }
 
 .message .message-body {
-  margin-left: 10px;
-  padding: 10px 15px;
-  border-radius: 12px;
-  max-width: 75%;
-  word-wrap: break-word;
+    margin-left: 10px;
+    padding: 10px 15px;
+    border-radius: 16px;
+    max-width: 75%;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
 .message.user {
-  justify-content: flex-end;
+    justify-content: flex-end;
 }
 
-.message.user .message-body {
-  background-color: #ffd600;
-  color: #000;
-  border-radius: 12px 12px 0 12px;
-}
-
-.message.other .message-body {
-  background-color: #2c2c2c;
-  color: #e0e0e0;
-  border-radius: 12px 12px 12px 0;
-}
-
-/* Animación */
+/* ANIMACIÓN */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
+/* INFORMACIÓN DEL MENSAJE (NOMBRE Y HORA) */
 .user-info {
     display: flex;
-    justify-content: space-between;  /* separa el nombre y la hora */
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 4px;
     padding-right: 5px;
 }
 
-
 .username {
     margin-right: 15px;
-    color: #5c5c5b;
+    color: #075e54; /* Verde oscuro WhatsApp */
     font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.95rem;
 }
 
 .time {
-    color: #888;
+    color: #999;
     font-style: italic;
     font-size: 0.8rem;
     font-family: 'Courier New', Courier, monospace;
 }
+.status-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-left: 8px;
+  vertical-align: middle;
+  border: 1.5px solid #ccc;
+}
 
+.status-dot.online {
+  background-color: #25d366; /* verde WhatsApp */
+  border-color: #128c4a;
+}
+
+.status-dot.offline {
+  background-color: #d93025; /* rojo vibrante */
+  border-color: #a8231f;
+}
+#emojiPicker {
+  display: none;
+  margin-top: 5px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  user-select: none;
+  max-width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  /* quita position fixed y bottom, right */
+}
+#emojiPicker {
+  display: none;
+  position: fixed;
+  bottom: 90px;
+  right: 40px;
+  /* resto de estilos */
+}
+
+ #emojiPicker {
+      display: none;
+      position: fixed;
+      bottom: 90px;
+      right: 40px;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      z-index: 1050;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      user-select: none;
+      max-width: 300px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    #emojiPicker span {
+      cursor: pointer;
+      font-size: 24px;
+      padding: 4px;
+      border-radius: 6px;
+      transition: background-color 0.2s;
+    }
+    #emojiPicker span:hover {
+      background-color: #eee;
+    }
+
+
+    .input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.chat-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-input-group input {
+  flex: 1;
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+
+.emoji-btn {
+  font-size: 1.2rem;
+  border-radius: 50%;
+  padding: 10px;
+  height: 100%;
+}
+
+#emojiPicker {
+  position: absolute;
+  bottom: 55px;
+  left: 0;
+  display: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1000;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  user-select: none;
+  max-width: 300px;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex-direction: row;
+}
+
+#emojiPicker span {
+  cursor: pointer;
+  font-size: 24px;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+#emojiPicker span:hover {
+  background-color: #eee;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+#all-messages {
+  background-color: #e5ddd5;
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 20px;
+  border-radius: 0;
+  scroll-behavior: smooth;
+}
+
+#all-messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+#all-messages::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+/* Input fijo abajo */
+.input-container {
+  background: #f8f9fa;
+  border-top: 1px solid #ccc;
+  position: relative;
+}
+
+.chat-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-input-group input {
+  flex: 1;
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+
+.emoji-btn {
+  font-size: 1.3rem;
+  border-radius: 50%;
+  padding: 6px 10px;
+}
+
+/* Emoji Picker ajustado debajo del botón emoji */
+#emojiPicker {
+  position: absolute;
+  bottom: 60px;
+  left: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1000;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  user-select: none;
+  max-width: 280px;
+  display: none;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#emojiPicker span {
+  cursor: pointer;
+  font-size: 24px;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+#emojiPicker span:hover {
+  background-color: #eee;
+}
