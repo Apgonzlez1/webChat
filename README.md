@@ -31,23 +31,6 @@ Crear una aplicación de chat funcional usando **Node.js**, **Socket.io**, **Boo
 
 ---
 
-## 🖼️ Capturas de pantalla
-
-![Chat general](capturas/chat_general.png)
-
-
-### Página de Registro  
-![Registro](capturas/registro.png)
-
-
-### Chat funcionando (vista general)  
-
-
-
-
-### Envío de mensaje propio  
-![Mensaje propio](capturas/mensaje_propio.png)
-
 
 ---
 
