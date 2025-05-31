@@ -1,338 +1,92 @@
 /* RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* CUERPO */
+/* BODY */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #e5ddd5;  /* Fondo tipo WhatsApp */
-    color: #000;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* ENCABEZADO */
-header {
-    background: #075e54; /* Verde oscuro WhatsApp */
-    color: #fff;
-    padding: 12px;
-    font-weight: bold;
-    font-size: 1.7rem;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-/* BOTONES */
-.btn {
-    padding: 0.4rem 0.9rem;
-    font-size: 1rem;
-    text-align: center;
-    text-decoration: none;
-    border: 1px solid transparent;
-    border-radius: 20px;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    cursor: pointer;
-    user-select: none;
-}
-
-.btn.primary {
-    color: #fff;
-    background-color: #25d366; /* Verde brillante WhatsApp */
-    border-color: #25d366;
-    box-shadow: 0 4px 8px rgba(37, 211, 102, 0.4);
-}
-
-.btn.primary:hover {
-    background-color: #128c4a;
-    border-color: #0f7b42;
-    color: #fff;
-}
-
-.btn.primary:active {
-    background-color: #0f7b42;
-    border-color: #0c6938;
-    color: #fff;
-}
-
-/* GRUPOS DE INPUTS */
-.input-group {
-    display: flex;
-    flex-direction: column;
-}
-
-/* INPUTS */
-input {
-    border: 1px solid #ccc;
-    outline: none;
-    padding: 12px 15px;
-    border-radius: 20px;
-    background-color: #fff;
-    color: #000;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-input:focus {
-    border-color: #25d366;
-    box-shadow: 0 0 8px rgba(37, 211, 102, 0.5);
-}
-
-/* TARJETA DEL CHAT */
-.card {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    border-radius: 16px;
-    background: #fff;
-    padding: 20px;
-    margin: 20px auto;
-    width: 100%;
-    max-width: 600px;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* CONTENEDOR BOTONES */
-.button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-/* CONTENEDOR DE IMAGEN DEL MENSAJE */
-.message .image-container {
-    width: 40px;
-    min-width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.message .image-container img {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-}
-
-/* MENSAJES - USUARIO */
-.message.user .message-body {
-    background-color: #dcf8c6; /* Verde claro tipo WhatsApp */
-    color: #000;
-    align-self: flex-end;
-    border-radius: 16px 16px 0 16px;
-}
-
-/* MENSAJES - OTROS */
-.message.other .message-body {
-    background-color: #ffffff; /* Blanco */
-    color: #000;
-    align-self: flex-start;
-    border-radius: 16px 16px 16px 0;
-}
-
-/* MENSAJE BASE */
-.message {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 15px;
-    animation: fadeIn 0.3s ease-in;
-}
-
-.message .message-body {
-    margin-left: 10px;
-    padding: 10px 15px;
-    border-radius: 16px;
-    max-width: 75%;
-    word-wrap: break-word;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-}
-
-.message.user {
-    justify-content: flex-end;
-}
-
-/* ANIMACIÓN */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(5px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* INFORMACIÓN DEL MENSAJE (NOMBRE Y HORA) */
-.user-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4px;
-    padding-right: 5px;
-}
-
-.username {
-    margin-right: 15px;
-    color: #075e54; /* Verde oscuro WhatsApp */
-    font-weight: bold;
-    font-size: 0.95rem;
-}
-
-.time {
-    color: #999;
-    font-style: italic;
-    font-size: 0.8rem;
-    font-family: 'Courier New', Courier, monospace;
-}
-.status-dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-left: 8px;
-  vertical-align: middle;
-  border: 1.5px solid #ccc;
-}
-
-.status-dot.online {
-  background-color: #25d366; /* verde WhatsApp */
-  border-color: #128c4a;
-}
-
-.status-dot.offline {
-  background-color: #d93025; /* rojo vibrante */
-  border-color: #a8231f;
-}
-#emojiPicker {
-  display: none;
-  margin-top: 5px;
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  user-select: none;
-  max-width: 300px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  /* quita position fixed y bottom, right */
-}
-#emojiPicker {
-  display: none;
-  position: fixed;
-  bottom: 90px;
-  right: 40px;
-  /* resto de estilos */
-}
-
- #emojiPicker {
-      display: none;
-      position: fixed;
-      bottom: 90px;
-      right: 40px;
-      background: #fff;
-      border: 1px solid #ccc;
-      padding: 10px;
-      z-index: 1050;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      user-select: none;
-      max-width: 300px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    #emojiPicker span {
-      cursor: pointer;
-      font-size: 24px;
-      padding: 4px;
-      border-radius: 6px;
-      transition: background-color 0.2s;
-    }
-    #emojiPicker span:hover {
-      background-color: #eee;
-    }
-
-
-    .input-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.chat-input-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.chat-input-group input {
-  flex: 1;
-  border-radius: 20px;
-  padding: 10px 15px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-}
-
-.emoji-btn {
-  font-size: 1.2rem;
-  border-radius: 50%;
-  padding: 10px;
-  height: 100%;
-}
-
-#emojiPicker {
-  position: absolute;
-  bottom: 55px;
-  left: 0;
-  display: none;
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 10px;
-  z-index: 1000;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  user-select: none;
-  max-width: 300px;
-  flex-wrap: wrap;
-  gap: 8px;
-  flex-direction: row;
-}
-
-#emojiPicker span {
-  cursor: pointer;
-  font-size: 24px;
-  padding: 4px;
-  border-radius: 6px;
-  transition: background-color 0.2s;
-}
-
-#emojiPicker span:hover {
-  background-color: #eee;
+  background-color: #f0f2f5;
+  color: #000;
+  font-family: 'Segoe UI', sans-serif;
 }
 .card-body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  position: relative;
+  padding: 0;
 }
 
+
+/* CHAT CARD */
+.chat-container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 900px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* HEADER */
+.card-header {
+  background: linear-gradient(90deg, #128c7e, #25d366);
+  color: #fff;
+  text-align: center;
+  padding: 16px 20px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+}
+
+
+/* USUARIOS PANEL */
+.user-panel {
+  width: 220px;
+  background: #fff;
+  color: #333;
+  border-right: 1px solid #ccc;
+  padding: 0;
+}
+
+.panel-header {
+  background: #25d366;
+  color: #fff;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  border-top-left-radius: 8px;
+}
+
+/* LISTA USUARIOS */
+#users {
+  padding: 0;
+  margin: 0;
+}
+
+#users li {
+  padding: 8px 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#users li:hover {
+  background-color: #f1f1f1;
+}
+
+/* MENSAJES */
 #all-messages {
-  background-color: #e5ddd5;
+  background: #e5ddd5;
   overflow-y: auto;
-  flex-grow: 1;
   padding: 20px;
-  border-radius: 0;
   scroll-behavior: smooth;
 }
 
@@ -341,15 +95,51 @@ input:focus {
 }
 
 #all-messages::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
 
-/* Input fijo abajo */
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.other {
+  justify-content: flex-start;
+}
+
+.message .message-body {
+  max-width: 75%;
+  word-wrap: break-word;
+  padding: 10px 15px;
+  border-radius: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.message.user .message-body {
+  background: #dcf8c6;
+  color: #000;
+  border-radius: 16px 16px 0 16px;
+}
+
+.message.other .message-body {
+  background: #fff;
+  color: #000;
+  border-radius: 16px 16px 16px 0;
+}
+
+/* INPUT MENSAJE */
 .input-container {
   background: #f8f9fa;
+  padding: 10px;
   border-top: 1px solid #ccc;
-  position: relative;
+  
 }
 
 .chat-input-group {
@@ -358,52 +148,25 @@ input:focus {
   gap: 10px;
 }
 
+
 .chat-input-group input {
   flex: 1;
+  border: 1px solid #ccc;
   border-radius: 20px;
   padding: 10px 15px;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  outline: none;
 }
 
-.emoji-btn {
-  font-size: 1.3rem;
-  border-radius: 50%;
-  padding: 6px 10px;
+.chat-input-group input:focus {
+  border-color: #25d366;
+  box-shadow: 0 0 8px rgba(37, 211, 102, 0.5);
 }
 
-/* Emoji Picker ajustado debajo del botón emoji */
-#emojiPicker {
-  position: absolute;
-  bottom: 60px;
-  left: 10px;
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 10px;
-  z-index: 1000;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  user-select: none;
-  max-width: 280px;
-  display: none;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-#emojiPicker span {
-  cursor: pointer;
-  font-size: 24px;
-  padding: 4px;
-  border-radius: 6px;
-  transition: background-color 0.2s;
-}
-
-#emojiPicker span:hover {
-  background-color: #eee;
-}
+/* BOTONES */
 .whatsapp-btn {
-  background-color: #25D366;  /* Verde WhatsApp */
-  color: white;
+  background-color: #25D366;
+  color: #fff;
   font-weight: bold;
   border: none;
   padding: 10px 20px;
@@ -412,97 +175,89 @@ input:focus {
 }
 
 .whatsapp-btn:hover {
-  background-color: #128C4A;  /* Verde más oscuro al pasar el mouse */
-}
-/* Panel lateral de usuarios */
-.user-panel {
-  width: 200px;
-  background-color: #fff;
-  color: #333;
-  border-right: 1px solid #ccc;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  overflow-y: auto;
-  max-height: 100%;
-  display: flex;
-  flex-direction: column;
+  background-color: #128C4A;
 }
 
-.panel-header {
-  background-color: #25D366;
-  color: white;
-  padding: 10px;
-  border-top-left-radius: 8px;
-  font-size: 1rem;
-  text-align: center;
-}
-
-#user-list {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 100%;
-  background-color: #f8f9fa;
-  border-right: 2px solid #ddd;
-  padding: 10px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-
-#user-list h6 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-}
-
-#user-list ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-#user-list li {
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
+.emoji-btn {
+  font-size: 1.5rem;
+  border: none;
+  background: transparent;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-#user-list li:hover {
-  background-color: #f1f1f1;
-}
-
-
+/* EMOJI PICKER */
 #emojiPicker {
+  position: absolute;
+  bottom: 55px;
+  left: 10px;
   display: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1000;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  max-width: 280px;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+  gap: 8px;
+  flex-direction: row;
 }
 
 #emojiPicker span {
+  font-size: 24px;
   cursor: pointer;
-  font-size: 1.5rem;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
 }
 
-.whatsapp-btn {
-  background-color: #25D366;
-  border: none;
-  color: white;
+#emojiPicker span:hover {
+  background-color: #eee;
+}
+/* INFO USUARIO EN MENSAJE */
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  padding-right: 5px;
 }
 
-.message.user {
-  text-align: right;
+.username {
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #075e54;
 }
 
-.message.other {
-  text-align: left;
+.time {
+  color: #999;
+  font-size: 0.8rem;
+  font-family: 'Courier New', monospace;
 }
-.sidebar-users {
-  width: 200px;
-  height: 100%;
-  overflow-y: auto;
-  background-color: #f8f9fa;
-  color: #333;
-  padding: 10px;
-  border-right: 1px solid #ccc;
+
+/* ANIMACIÓN */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .user-panel {
+    display: none !important;
+  }
+}
+.profile-picture,
+.message .image-container img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
